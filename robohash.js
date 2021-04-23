@@ -1,7 +1,6 @@
 const crypto = require('crypto')
 const fs = require('fs')
 const sharp = require('sharp')
-const natsort = require('./natsort')
 const { promisify } = require('util')
 
 const stat = promisify(fs.stat)
@@ -75,7 +74,7 @@ class Robohash {
 
     if (!format) format = this.format
 
-    const roboparts = (await this.getListOfFiles(`${__dirname}/sets/${roboset}`)).sort(natsort)
+    const roboparts = (await this.getListOfFiles(`${__dirname}/sets/${roboset}`)).sort()
   
 
     let roboimage = await roboparts.slice(1).reduce(async (input, part) => {

@@ -5,7 +5,6 @@ WORKDIR /usr/src/app
 COPY index.js .
 COPY robohash.js .
 COPY package.json .
-COPY natsort.js .
 COPY index.js .
 ADD backgrounds backgrounds
 ADD sets sets

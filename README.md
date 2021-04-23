@@ -13,7 +13,3 @@ npm install
 npm run start
 ```
 
-## Todo
-
-- [ ] Single Robohash Lib
-- [ ] Robohash CLI

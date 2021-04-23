@@ -76,9 +76,11 @@ class Robohash {
     if (!format) format = this.format
 
     const roboparts = (await this.getListOfFiles(`${__dirname}/sets/${roboset}`)).sort(natsort)
+  
+
     let roboimage = await roboparts.slice(1).reduce(async (input, part) => {
       const data = await input
-      return sharp(data).overlayWith(part).toBuffer()
+      return sharp(data).composite([{ input: part, gravity: 'centre' }]).toBuffer()
     }, sharp(roboparts[0]).toBuffer())
     return sharp(roboimage).resize(sizex, sizey).raw().toFormat('png').toBuffer()
   }
